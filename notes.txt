@@ -1,0 +1,34 @@
+Hooks
+===========================================================
+    before
+    after
+    beforeEach
+    afterEach
+
+Selectors
+===========================================================
+    css
+    xpath -> npm install -D cypress-xpath -> In commands.js add "/// <reference types="cypress-xpath" />", e2e.js add "require('cypress-xpath')"
+
+Methods
+===========================================================
+    visit('')
+    title()
+    get()
+    text() -> get('').then((element) => { element.text() })
+
+Assertions
+===========================================================
+Implicit Assertions
+    should
+    and
+eq
+include
+contains
+have.length
+have.value
+be.visible and more
+
+Explicit Assertions
+    expect - BDD
+    assert - TDD

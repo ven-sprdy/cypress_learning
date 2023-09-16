@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
-    "cypress": "^13.2.0"
+    "cypress": "^13.2.0",
+    "cypress-xpath": "^2.0.1"
   },
   "scripts": {
     "open": "cypress open",
