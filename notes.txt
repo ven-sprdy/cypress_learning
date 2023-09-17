@@ -1,3 +1,12 @@
+Plugins
+===========================================================
+Cypress Snippets
+Cypress Helper
+Cypress Fixture-IntelliSense
+Cypress Snippets
+Cucumber (Gherkin) Full Support
+vscode-icons
+
 Hooks
 ===========================================================
     before
@@ -32,3 +41,27 @@ be.visible and more
 Explicit Assertions
     expect - BDD
     assert - TDD
+
+BDD
+===========================================================
+What is BDD? : This is a development method which has evolved from the Test-driven development process. Behavior Driven development is mostly about technical insight and business knowledge.
+
+Why use BDD Framework?
+Before the BDD framework, everyone was using TDD. TDD works fine in software development, provided the stakeholders are familiar with the framework being used and their technical knowledge is sufficient. However, this may not be the case always.
+BDD provides a path that acts as a bridge to overcome the gap between the technical and the non-technical teams because the test cases are commonly written in simple text, i.e. English. The main advantage of BDD is the plain and clearer approach which is easier to understand.
+BDD Format to write test case: 
+Given – When – Then Approach
+• Given: Some given context (Preconditions).
+• When: Some Action is performed (Actions).
+• Then: Particular outcome/consequence after the above step (Results).
+----------------------------------------------------------------------
+Where this test case written?: in a Feature File
+Example of  Feature File:
+Feature: Login function of Gmail Application
+
+Scenario: As a valid user I should able to Login to G-mail 
+
+Given User is navigating to G-mail Login Page
+When User need to enter username as "Username" and password as "Password"
+Then User is successfully navigated to the G-mail Mail Box
+
