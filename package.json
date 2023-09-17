@@ -22,8 +22,8 @@
   },
   "scripts": {
     "open": "cypress open",
-    "headless": "npx cypress run --browser=chrome",
-    "head": "npx cypress run --headed --browser=chrome",
+    "headless": "npx cypress run --browser chrome",
+    "head": "npx cypress run --headed --browser chrome",
     "report": "node html-report.js"
   }
 }
