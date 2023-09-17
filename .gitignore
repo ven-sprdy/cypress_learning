@@ -1,3 +1,6 @@
 node_modules/
 package-lock.json
+.DS_Store
+cucumber-messages.ndjson
 cypress/screenshots
+cypress/reports/
