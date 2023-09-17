@@ -2,6 +2,8 @@ const { defineConfig } = require("cypress");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const addCucumberPreprocessorPlugin = require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
 const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
+const now = new Date().toLocaleString();
+
 module.exports = defineConfig({
   e2e: {
     async setupNodeEvents(on, config) {
@@ -11,9 +13,21 @@ module.exports = defineConfig({
 
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
+      on('task', {
+        beforeTest(testName) {
+          console.log(`=== Starting Test: ${testName}, at ${now}`);
+          return null;
+        },
+        afterTest(testName) {
+          console.log(`=== Ending Test: ${testName} at ${now}`);
+          return null;
+        }
+      });
 
       return config;
     },
     specPattern: "cypress/integration/cucumber/**/*.feature",
-  },
+    video: false,
+    trashAssetsBeforeRuns: true
+  }
 });

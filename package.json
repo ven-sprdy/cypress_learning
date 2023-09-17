@@ -6,17 +6,24 @@
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "cypress": "^13.2.0",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.5.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "stepDefinitions": [
       "cypress/integration/cucumber/**/*.js"
-    ]
+    ],
+    "json": {
+      "enabled": true,
+      "formatter": "cucumber-json-formatter",
+      "output": "cypress/reports/json/cucumber-report.json"
+    }
   },
   "scripts": {
     "open": "cypress open",
-    "headless": "npx cypress run",
-    "head": "npx cypress run --headed --browser chrome"
+    "headless": "npx cypress run --browser=chrome",
+    "head": "npx cypress run --headed --browser=chrome",
+    "report": "node html-report.js"
   }
 }

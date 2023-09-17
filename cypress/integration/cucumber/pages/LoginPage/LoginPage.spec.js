@@ -2,8 +2,6 @@ class LoginPage {
 
     constructor() {
         this.url = "/";
-        this.title = "OrangeHRM";
-        this.invalidLoginError = 'Invalid credentials';
     }
 
     enterUserNamePassword(username, password) {
@@ -17,15 +15,20 @@ class LoginPage {
         return this;
     }
 
-    validateTitle() {
-        cy.title().should('eq', this.title);
+    validateTitle(title) {
+        cy.title().should('eq', title);
     }
 
-    validateInvalidLoginError() {
+    validateInvalidLoginError(errorMessage) {
         cy.get('.oxd-alert-content--error p').then((element) => {
             let actualError = element.text();
-            assert.equal(actualError, this.invalidLoginError, "Error message displayed: " + actualError);
+            assert.equal(actualError, errorMessage, "Error message displayed: " + actualError);
         });
+    }
+
+    clickForgotPasswordLink() {
+        cy.get('p.orangehrm-login-forgot-header').click();
+        return this;
     }
 
 }
