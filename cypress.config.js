@@ -58,6 +58,18 @@ module.exports = defineConfig({
           createReportJsonMeta(results);
         }
       });
+
+      // on('task', {
+      //   beforeTest(testName) {
+      //     console.log(`=== Starting Test: ${testName}, at ${now}`);
+      //     return null;
+      //   },
+      //   afterTest(testName) {
+      //     console.log(`=== Ending Test: ${testName} at ${now}`);
+      //     return null;
+      //   }
+      // });
+
       return config;
     },
     specPattern: "cypress/integration/cucumber/**/*.feature",
