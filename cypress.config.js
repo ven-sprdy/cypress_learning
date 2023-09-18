@@ -33,8 +33,11 @@ module.exports = defineConfig({
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
       on("before:run", () => {
-        fs.rmSync("./cypress/reports/", { recursive: true, force: true });
-        let report_dir = ["./cypress/reports/json", "./cypress/reports/messages", "./cypress/reports/metadata", "./cypress/reports/html"];
+        fs.rmSync("./cypress/reports", { recursive: true, force: true });
+        fs.rmSync("./cypress/downloads", { recursive: true, force: true });
+        fs.rmSync("./cypress/screenshots", { recursive: true, force: true });
+        fs.rmSync("./cypress/videos", { recursive: true, force: true });
+        let report_dir = ["./cypress/reports/json", "./cypress/reports/messages", "./cypress/reports/metadata", "./cypress/reports/html", "./cypress/downloads", "./cypress/screenshots", "./cypress/videos"];
         report_dir.forEach((dir) => {
           if (!fs.existsSync(dir)){
             fs.mkdirSync(dir, { recursive: true });

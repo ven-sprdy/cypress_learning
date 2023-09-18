@@ -2,11 +2,11 @@
 
 ### Prerequisites
 
-| Software | Min. version | Info                     | 
-|----------|--------------|--------------------------|
-| NodeJS   | 20 and above | Usage for npm.           |
-| Cypress  | 13 and above | Usage for writing tests. |
-| Chrome   |              | Usage for cypress tests. |
+| Software | Min. version | Info                             | 
+|----------|--------------|----------------------------------|
+| NodeJS   | 20 and above | Usage for npm.                   |
+| Cypress  | 13 and above | Usage for writing cypress tests. |
+| Chrome   |              | Usage for running cypress tests. |
 
 ### Installing
 
@@ -58,7 +58,7 @@ Test data files are placed in the path `./cypress/fixtures`.
 Generate reports in terminal:
 
 ```
-npm report
+npm run report
 ```
 
 Report are placed in the path `./cypress/reports/html/index.html`.
