@@ -2,11 +2,12 @@
 
 ### Prerequisites
 
-| Software | Min. version | Info                             | 
-|----------|--------------|----------------------------------|
-| NodeJS   | 20 and above | Usage for npm.                   |
-| Cypress  | 13 and above | Usage for writing cypress tests. |
-| Chrome   |              | Usage for running cypress tests. |
+| Software | Min. version     | Info                             | 
+|----------|------------------|----------------------------------|
+| NodeJS   | 20 and above     | Usage for npm.                   |
+| Cypress  | 13 and above     | Usage for writing cypress tests. |
+| VS Code  | 1.82.0 and above | Usage for writing cypress tests. |
+| Chrome   |                  | Usage for running cypress tests. |
 
 ### Installing
 
@@ -21,6 +22,20 @@ Install with npm:
 
 ```
 npm install
+```
+
+### VS Code IDE Installation
+
+Download VS Code 
+
+```
+Download VS Code from https://code.visualstudio.com/download
+Useful VS Code Plugins:
+    Cypress Snippets
+    Cypress Helper
+    Cypress Fixture-IntelliSense
+    Cucumber (Gherkin) Full Support
+    vscode-icons
 ```
 
 ### Testing
