@@ -69,7 +69,7 @@ Screenshots are placed in the path `./cypress/reports/screenshots`.
 
 #### Videos
 
-Videos are placed in the path `./cypress/reports/videos`.
+Videos are placed in the path `./cypress/reports/videos`. To enable videos of test run enable "video" attribute in cypress.config.js
 
 ## Configuration
 
