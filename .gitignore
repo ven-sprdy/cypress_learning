@@ -3,7 +3,5 @@ package-lock.json
 .DS_Store
 cucumber-messages.ndjson
 cypress/screenshots
-cypress/reports/json/
-cypress/reports/metadata/
-cypress/reports/html/
+reports/
 downloads/

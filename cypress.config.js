@@ -1,6 +1,6 @@
 const { defineConfig } = require("cypress");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
-const addCucumberPreprocessorPlugin = require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
+const { addCucumberPreprocessorPlugin, afterRunHandler} = require("@badeball/cypress-cucumber-preprocessor");
 const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 const now = new Date().toLocaleString();
 const fs = require("fs");
@@ -39,14 +39,28 @@ module.exports = defineConfig({
 
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
-      on("before:browser:launch", () => {
-        let metadata_dir = ["./cypress/reports/json", "./cypress/reports/metadata"];
-        metadata_dir.forEach( (dir) => {
+      on("before:run", () => {
+        let report_dir = ["./reports/json", "./reports/message"];
+        report_dir.forEach((dir) => {
           if (!fs.existsSync(dir)){
             fs.mkdirSync(dir, { recursive: true });
           }
         });
       });
+
+      on('after:run', async (results) => {
+        if (results) {
+          await afterRunHandler(config);
+          fs.writeFile("./reports/results.json", JSON.stringify(results), (err) => {
+            if (err)
+              console.log(err);
+            else {
+              console.log("Successful results has been written");
+        }
+          });
+        }
+      });
+      
       // on("after:run", async (results) => {
       //   if (results) {
       //     createReportJsonMeta(results);
