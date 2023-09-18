@@ -88,4 +88,4 @@ Videos are placed in the path `./cypress/reports/videos`. To enable videos of te
 
 ### Change browser
 
-Change the parameter `--brwoser` in the `package.json` inside script command `test`.
+Change the parameter `--browser` in the `package.json` inside script command `test`.
