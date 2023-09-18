@@ -32,6 +32,7 @@ module.exports = defineConfig({
 
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
+
       on("before:run", () => {
         fs.rmSync("./cypress/reports", { recursive: true, force: true });
         fs.rmSync("./cypress/downloads", { recursive: true, force: true });
@@ -69,6 +70,11 @@ module.exports = defineConfig({
       //     return null;
       //   }
       // });
+      const environmentName = config.env.configFile || "dev";
+      const pathOfConfigurationFile = `./config/config.${environmentName}.json`;
+      const settings = require(pathOfConfigurationFile);
+
+      if(settings.baseUrl) { config.baseUrl = settings.baseUrl }
 
       return config;
     },

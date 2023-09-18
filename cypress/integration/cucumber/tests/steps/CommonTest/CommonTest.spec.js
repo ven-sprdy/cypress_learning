@@ -10,7 +10,7 @@ import loginPage from '../../../pages/LoginPage/LoginPage.spec';
 // });
 
 Given('User is on HRM login page', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com');
+    cy.visit('/');
 });
 
 Then('User should see the Home page with {string} title', (loginTitle) => {
