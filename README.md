@@ -26,8 +26,6 @@ npm install
 
 ### VS Code IDE Installation
 
-Download VS Code 
-
 ```
 Download VS Code from https://code.visualstudio.com/download
 Useful VS Code Plugins:
