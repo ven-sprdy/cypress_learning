@@ -1,6 +1,7 @@
 const report = require("multiple-cucumber-html-reporter");
-const now = new Date().toLocaleString();
+const fs = require("fs");
 
+const data = JSON.parse(fs.readFileSync("./cypress/reports/metadata/report_metadata.json", { encoding: 'utf8', flag: 'r' }));
 report.generate({
   jsonDir: "./cypress/reports/json",
   reportPath: "./cypress/reports/html",
@@ -10,22 +11,23 @@ report.generate({
   displayReportTime: true,
   metadata: {
     browser: {
-      name: "chrome",
-      version: "114"
+      name: data.browserName,
+      version: data.browserVersion,
     },
     device: "Local test machine",
     platform: {
-      name: "mac",
-      version: "16.04",
+      name: data.osName,
+      version: data.osVersion,
     },
   },
   customData: {
     title: "Test's Run Info",
     data: [
       { label: "Project", value: "Cucumber Learning" },
-      { label: "Release", value: "1.0.0" },
-      { label: "Execution Start Time", value: `${now}` },
-      { label: "Execution End Time", value: `${now}` },
+      { label: "Node Version", value: data.nodeVersion},
+      { label: "Cypress Version", value: data.cypressVersion },
+      { label: "Execution Start Time", value: data.startedTestsAt},
+      { label: "Execution End Time", value: data.endedTestsAt },
     ],
   },
 });

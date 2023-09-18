@@ -6,14 +6,7 @@ const now = new Date().toLocaleString();
 const fs = require("fs");
 
 function createReportJsonMeta(results) {
-  // let metadata_dir = "./cypress/reports/metadata";
-  // if (!fs.existsSync(metadata_dir)){
-  //   fs.mkdirSync(metadata_dir, { recursive: true });
-  // }
-
-  fs.writeFileSync(
-    "./cypress/reports/metadata/results.json",
-    JSON.stringify(
+  fs.writeFileSync("./cypress/reports/metadata/report_metadata.json", JSON.stringify (
       {
         browserName: results.browserName,
         browserVersion: results.browserVersion,
@@ -40,7 +33,8 @@ module.exports = defineConfig({
       on("file:preprocessor", bundler);
       await addCucumberPreprocessorPlugin(on, config);
       on("before:run", () => {
-        let report_dir = ["./reports/json", "./reports/message"];
+        fs.rmSync("./cypress/reports/", { recursive: true, force: true });
+        let report_dir = ["./cypress/reports/json", "./cypress/reports/messages", "./cypress/reports/metadata", "./cypress/reports/html"];
         report_dir.forEach((dir) => {
           if (!fs.existsSync(dir)){
             fs.mkdirSync(dir, { recursive: true });
@@ -51,58 +45,16 @@ module.exports = defineConfig({
       on('after:run', async (results) => {
         if (results) {
           await afterRunHandler(config);
-          fs.writeFile("./reports/results.json", JSON.stringify(results), (err) => {
+          fs.writeFile("./cypress/reports/metadata/results.json", JSON.stringify(results), (err) => {
             if (err)
               console.log(err);
             else {
               console.log("Successful results has been written");
-        }
+            }
           });
+          createReportJsonMeta(results);
         }
       });
-      
-      // on("after:run", async (results) => {
-      //   if (results) {
-      //     createReportJsonMeta(results);
-      //     let sourcePath = "./cypress/reports/json";
-      //     let oldExtension = "cucumber.json";
-      //     let newExtension =
-      //       results.browserName + "." + new Date().getTime() + ".json";
-      //     fs.readdir(sourcePath, (err, files) => {
-      //       if (err) {
-      //         console.log("Issue in the file reading");
-      //         return;
-      //       }
-            
-      //       files.forEach((file) => {
-      //         const oldFilePath = `${sourcePath}/${file}`;
-      //         console.log(oldFilePath);
-      //         if (file.endsWith(`.${oldExtension}`)) {
-      //           const newFilePath = `${sourcePath}/${file.replace(
-      //             `.${oldExtension}`,
-      //             `.${newExtension}`
-      //           )}`;
-      //           fs.rename(oldFilePath, newFilePath, (err) => {
-      //             if (err) {
-      //               console.log("Issue in the file renaming");
-      //             }
-      //           });
-      //         }
-      //       });
-      //     });
-      //   }
-      // });
-      // on('task', {
-      //   beforeTest(testName) {
-      //     console.log(`=== Starting Test: ${testName}, at ${now}`);
-      //     return null;
-      //   },
-      //   afterTest(testName) {
-      //     console.log(`=== Ending Test: ${testName} at ${now}`);
-      //     return null;
-      //   }
-      // });
-
       return config;
     },
     specPattern: "cypress/integration/cucumber/**/*.feature",

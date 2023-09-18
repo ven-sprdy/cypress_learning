@@ -17,17 +17,17 @@
     ],
     "json": {
       "enabled": true,
-      "output": "./reports/json/cucumber-report.json"
+      "output": "cypress/reports/json/cucumber-report.json"
     },
     "messages": {
       "enabled": true,
-      "output": "./reports/message/cucumber-report.ndjson"
+      "output": "cypress/reports/messages/cucumber-report.ndjson"
     }
   },
   "scripts": {
     "open": "cypress open",
     "headless": "cypress run --browser chrome --reporter json",
-    "test": "cypress run --headed --browser chrome --reporter json",
+    "test": "cypress run --headed --browser chrome --reporter json ",
     "report": "node html-report.js"
   }
 }
