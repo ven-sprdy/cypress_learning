@@ -27,7 +27,7 @@
   "scripts": {
     "open": "cypress open",
     "headless": "cypress run --browser chrome --reporter json",
-    "test": "cypress run --headed --browser chrome --reporter json ",
+    "test": "cypress run --headed --browser chrome --reporter json",
     "report": "node html-report.js"
   }
 }
