@@ -76,6 +76,8 @@ npm run report
 
 Report are placed in the path `./cypress/reports/html/index.html`.
 
+<img width="1678" alt="Report" src="https://github.com/ven-sprdy/cypress_learning/assets/68039240/a76d6fe4-ea46-4b74-909a-fa8f17538b37">
+
 #### Screenshots
 
 Screenshots are placed in the path `./cypress/reports/screenshots`.
