@@ -1,6 +1,5 @@
 Feature: Forgot Password funcionality validation of the application
-
-    As a user, reset password by forgot password link
+Feature Description: As a user, reset password by forgot password link
 
     Background: User on login page
         Given User is on HRM login page

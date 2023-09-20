@@ -26,6 +26,7 @@ report.generate({
   displayDuration: true,
   durationInMS: false,
   displayReportTime: true,
+  openReportInBrowser: true,
   pageFooter: "<div class=\"created-by\"><p><b>A cypress cucumber html report.</b></p></div>",
   metadata: {
     browser: {

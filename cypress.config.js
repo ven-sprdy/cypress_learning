@@ -79,7 +79,7 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/integration/cucumber/**/*.feature",
-    video: false,
+    video: true,
     trashAssetsBeforeRuns: true
   }
 });

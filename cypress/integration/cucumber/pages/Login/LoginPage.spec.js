@@ -2,21 +2,10 @@ class LoginPage {
 
     constructor() {
         this.url = "/";
-    }
-
-    enterUserNamePassword(username, password) {
-        cy.get('input[name="username"]').type(username);
-        cy.get('input[name="password"]').type(password);
-        return this;
-    }
+    } 
 
     clickLoginButton() {
         cy.get('button[type="submit"]').click();
-        return this;
-    }
-
-    validateTitle(title) {
-        cy.title().should('eq', title);
     }
 
     validateInvalidLoginError(errorMessage) {
@@ -28,7 +17,6 @@ class LoginPage {
 
     clickForgotPasswordLink() {
         cy.get('p.orangehrm-login-forgot-header').click();
-        return this;
     }
 
 }
