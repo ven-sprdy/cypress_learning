@@ -8,6 +8,8 @@ const fs = require("fs");
 function createReportJsonMeta(results) {
   fs.writeFileSync("./cypress/reports/metadata/report_metadata.json", JSON.stringify (
       {
+        environment: results.config.env.configFile,
+        baseUrl: results.config.baseUrl,
         browserName: results.browserName,
         browserVersion: results.browserVersion,
         osName: results.osName,

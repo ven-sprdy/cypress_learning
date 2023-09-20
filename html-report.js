@@ -42,7 +42,8 @@ report.generate({
   customData: {
     title: "Test's Run Info",
     data: [
-      { label: "Project", value: "Cucumber Learning" },
+      { label: "Project", value: "Cypress Cucumber Learning" },
+      { label: "Environment", value: `<a href="${data.baseUrl}" target="_blank" >${(data.environment).toUpperCase()}<\a>` },
       { label: "Node Version", value: data.nodeVersion },
       { label: "Cypress Version", value: data.cypressVersion },
       { label: "Execution Start Time", value: new Date(data.startedTestsAt).toLocaleString() },

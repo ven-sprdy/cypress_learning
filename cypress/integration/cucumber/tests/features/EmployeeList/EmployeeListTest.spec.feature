@@ -1,11 +1,11 @@
 Feature: Employee List
-    Feature Description: As a user, login with valid credentials
+    Feature Description: Employee List, functional validations
 
     Background: User navigated to login page
         Given User is on HRM login page
         Then User should see the Home page with "OrangeHRM" title
 
-    Scenario: Validate PIM search functionality
+    Scenario: Validate employers list search functionality
         When User enters username and password
             | username | password |
             | admin    | admin123 |
