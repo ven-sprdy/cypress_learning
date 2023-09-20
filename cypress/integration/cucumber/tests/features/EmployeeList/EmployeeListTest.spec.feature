@@ -1,5 +1,5 @@
 Feature: Employee List
-    Feature Description: Employee List, functional validations
+Employee List, functional validations
 
     Background: User navigated to login page
         Given User is on HRM login page

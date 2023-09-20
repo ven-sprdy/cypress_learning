@@ -1,5 +1,5 @@
 Feature: User want to login into HRM site with valid and invalid credentials
-    Feature Description: Validate user login with valid and invalid credentials
+Validate user login with valid and invalid credentials
 
     Background: User navigated to login page
         Given User is on HRM login page
