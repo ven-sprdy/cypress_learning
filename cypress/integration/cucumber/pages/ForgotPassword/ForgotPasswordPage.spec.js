@@ -12,5 +12,4 @@ class ForgotPasswordPage {
 
 }
 
-const forgotPasswordPage = new ForgotPasswordPage();
-export default forgotPasswordPage;
+export const forgotPasswordPage = new ForgotPasswordPage();

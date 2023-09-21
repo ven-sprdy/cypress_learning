@@ -1,5 +1,9 @@
 class EmployeeListPage {
 
+    elements = {
+        employeeListLink: () => cy.contains('PIM')
+    }
+
     constructor() {
         this.url = "/web/index.php/pim/viewEmployeeList";
     }
@@ -9,9 +13,8 @@ class EmployeeListPage {
     }
 
     clickEmployeeListLink() {
-        cy.contains('PIM').click();
+        this.elements.employeeListLink().click();
     }
 
 }
-const employeeListPage = new EmployeeListPage();
-export default employeeListPage;
+export const employeeListPage = new EmployeeListPage();

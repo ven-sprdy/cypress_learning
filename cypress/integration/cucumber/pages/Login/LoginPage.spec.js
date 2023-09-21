@@ -1,25 +1,46 @@
 class LoginPage {
 
+    elements = {
+        usernameInput: () => cy.get('input[name="username"]'),
+        passwordInput: () => cy.get('input[name="password"]'),
+        signInButton: () => cy.get('button[type="submit"]'),
+        forgotPasswordLink: () => cy.get('p.orangehrm-login-forgot-header'),
+        loginErrorText: () => cy.get('.oxd-alert-content--error p')
+    }
+
     constructor() {
         this.url = "/";
     } 
 
+    typeUsername(username) {
+        this.elements.usernameInput().clear().type(username);
+      }
+    
+      typePassword(password) {
+        this.elements.passwordInput().clear().type(password);
+      }
+    
+      submitLogin(username,password){
+        this.elements.usernameInput().clear().type(username);
+        this.elements.passwordInput().clear().type(password);
+        this.elements.signInButton().click();
+      }
+
     clickLoginButton() {
-        cy.get('button[type="submit"]').click();
+        this.elements.signInButton().click();
     }
 
     validateInvalidLoginError(errorMessage) {
-        cy.get('.oxd-alert-content--error p').then((element) => {
+        this.elements.loginErrorText().then((element) => {
             let actualError = element.text();
             assert.equal(actualError, errorMessage, "Error message displayed: " + actualError);
         });
     }
 
     clickForgotPasswordLink() {
-        cy.get('p.orangehrm-login-forgot-header').click();
+        this.elements.forgotPasswordLink().click();
     }
 
 }
 
-const loginPage = new LoginPage();
-export default loginPage;
+export const loginPage = new LoginPage();

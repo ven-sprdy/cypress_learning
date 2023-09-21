@@ -73,7 +73,7 @@ module.exports = defineConfig({
       //   }
       // });
       const environmentName = config.env.configFile || "dev";
-      const pathOfConfigurationFile = `./config/config.${environmentName}.json`;
+      const pathOfConfigurationFile = `./cypress/config/config.${environmentName}.json`;
       const settings = require(pathOfConfigurationFile);
 
       if(settings.baseUrl) { config.baseUrl = settings.baseUrl }
@@ -82,6 +82,7 @@ module.exports = defineConfig({
     },
     specPattern: "cypress/integration/cucumber/**/*.feature",
     video: true,
-    trashAssetsBeforeRuns: true
+    trashAssetsBeforeRuns: true,
+    chromeWebSecurity: false,
   }
 });

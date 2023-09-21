@@ -10,12 +10,12 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', (username, password) => { 
-    cy.get('input[name="username"]').clear().type(username);
-    cy.get('input[name="password"]').clear().type(password);
- });
+// Cypress.Commands.add('login', (username, password) => { 
+//     cy.get('input[name="username"]').clear().type(username);
+//     cy.get('input[name="password"]').clear().type(password);
+//  });
 
- Cypress.Commands.add('validatePageTitle', (title) => { 
+ Cypress.Commands.add('assertPageTitle', (title) => { 
     cy.title().should('eq', title);
  });
 //
@@ -30,5 +30,6 @@ Cypress.Commands.add('login', (username, password) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-/// <reference types="cypress" />
-/// <reference types="cypress-xpath" />
+// <reference types="cypress" />
+// <reference types="cypress-xpath" />
+// <reference types="cypress-iframe" />
