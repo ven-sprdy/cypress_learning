@@ -83,6 +83,6 @@ module.exports = defineConfig({
     specPattern: "cypress/integration/**/*.feature",
     video: true,
     trashAssetsBeforeRuns: true,
-    chromeWebSecurity: false,
+    chromeWebSecurity: true,
   }
 });
