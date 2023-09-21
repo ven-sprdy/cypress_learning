@@ -13,7 +13,7 @@
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "stepDefinitions": [
-      "cypress/integration/cucumber/**/*.js"
+      "cypress/integration/**/*.js"
     ],
     "json": {
       "enabled": true,
@@ -25,9 +25,13 @@
     }
   },
   "scripts": {
-    "open": "cypress open",
+    "open:dev": "cypress open --env configFile=dev",
+    "open:test": "cypress open --env configFile=test",
     "headless": "cypress run --browser chrome --reporter json",
-    "test": "cypress run --headed --browser chrome --reporter json --env configFile=dev",
+    "test:chrome:dev:headless": "cypress run --browser chrome --reporter json --env configFile=dev",
+    "test:chrome:dev": "cypress run --headed --browser chrome --reporter json --env configFile=dev",
+    "test:firefox:dev:headless": "cypress run --browser firefox --reporter json --env configFile=dev",
+    "test:firefox:dev": "cypress run --headed --browser firefox --reporter json --env configFile=dev",
     "report": "node html-report.js"
   }
 }

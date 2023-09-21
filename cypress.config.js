@@ -80,9 +80,9 @@ module.exports = defineConfig({
 
       return config;
     },
-    specPattern: "cypress/integration/cucumber/**/*.feature",
+    specPattern: "cypress/integration/**/*.feature",
     video: true,
     trashAssetsBeforeRuns: true,
-    chromeWebSecurity: false,
+    chromeWebSecurity: true,
   }
 });
