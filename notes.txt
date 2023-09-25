@@ -65,3 +65,30 @@ Given User is navigating to G-mail Login Page
 When User need to enter username as "Username" and password as "Password"
 Then User is successfully navigated to the G-mail Mail Box
 
+
+
+Docker
+===========================================================
+What is a container: 
+    Layers of images(alpine 3.10 linux base image)
+    A way to package application with all the necessary dependenciew and configuration.
+    Portable artifact, easly shared and moved around.
+    Mkaes development and deployment more efficient.
+
+
+Before containers
+    developers needs to install all software and services in their respective OS
+After containers
+    Own isolated environment
+    packaged with all needed configuration
+
+docker ps or docker ps -a(history)
+docker pull postgres:9.6
+docker images
+docker run image_name
+docker start container_id
+docker stop container_id
+docker run -p6000:6379 -d image_name  
+docker logs container_id or docker logs name
+docker run -p6000:6379 -d --name new_name image_name
+docker exec -it container_id /bin/bash or docker exec -it name /bin/bash
